@@ -1,4 +1,4 @@
-package com.orangutang.orangutang.controller.documnet;
+package com.orangutang.orangutang.web.documnet;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

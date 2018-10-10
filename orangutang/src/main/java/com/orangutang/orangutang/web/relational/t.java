@@ -1,4 +1,4 @@
-package com.orangutang.orangutang.controller.relational;
+package com.orangutang.orangutang.web.relational;
 
 public class t {
 }

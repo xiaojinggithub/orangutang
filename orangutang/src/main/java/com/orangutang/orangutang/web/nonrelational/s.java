@@ -1,4 +1,4 @@
-package com.orangutang.orangutang.controller.nonrelational;
+package com.orangutang.orangutang.web.nonrelational;
 
 public class s {
 }

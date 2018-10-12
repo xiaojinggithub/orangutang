@@ -1,6 +1,6 @@
-package com.orangutang.orangutang.web.documnet
+package com.orangutang.orangutang.controller
 
-import org.springframework.web.bind.annotation.{RequestMapping,  RestController}
+import org.springframework.web.bind.annotation.{RequestMapping, RestController}
 
 @RestController
 @RequestMapping(Array("/hello"))

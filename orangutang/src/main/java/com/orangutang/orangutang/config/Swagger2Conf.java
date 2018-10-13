@@ -21,7 +21,7 @@ public class Swagger2Conf {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.orangutang.orangutang.web"))
+                .apis(RequestHandlerSelectors.basePackage("com.orangutang.orangutang.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -30,7 +30,7 @@ public class Swagger2Conf {
         return new ApiInfoBuilder()
                 .title("orangutang")
                 .description("orangutang api")
-                .termsOfServiceUrl("design by orangutang")
+                .termsOfServiceUrl("design by orangutang team")
                 .version("1.0")
                 .build();
     }

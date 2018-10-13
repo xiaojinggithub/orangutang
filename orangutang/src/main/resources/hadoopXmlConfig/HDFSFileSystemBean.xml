@@ -12,8 +12,6 @@
     <hdp:configuration id="hadoopConfiguration">
         fs.defaultFS=${spring.hadoop.fsUri}
     </hdp:configuration>
-    <!--获取到hadoop的file-system实例，并指定linux上用户名-->
     <hdp:file-system  id="fs" configuration-ref="hadoopConfiguration" user="hadoop"/>
-    <!--引入hadoop的xml配置文件-->
-    <context:property-placeholder location="application.properties"/>
+    <context:property-placeholder location="classpath:application.properties"/>
  </beans>

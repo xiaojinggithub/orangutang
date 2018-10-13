@@ -31,7 +31,7 @@ public class SpringHadoopHdfsUtils {
         this.hdfsFilePath = hdfsFilePath;
         this.mkdirPath=mkdirPath;
         /*load  configrtion*/
-        ctx=new ClassPathXmlApplicationContext("SpringHadoopBeansConfig.xml");
+        ctx=new ClassPathXmlApplicationContext("hadoopXmlConfig/HDFSFileSystemBean.xml");
         /*get fs bean from  xml config*/
         fs=(FileSystem)ctx.getBean("fs");
     }

@@ -203,6 +203,19 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-hadoop-boot</artifactId>
         </dependency>
+        <!--hive-jdbc -->
+       <!-- <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>3.1.0</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>3.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/hive-jdbc-3.1.0.jar</systemPath>
+        </dependency>
 
     </dependencies>
 

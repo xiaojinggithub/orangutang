@@ -20,9 +20,9 @@ public class HiveServiceImpl implements HiveService {
      * @return
      */
     @Override
-    public ResultSet select(String sql,String url,String driver) {
+    public ResultSet selectByJDBC(String sql,String url,String driver) {
         try {
-            JDBCUtils  jdbcUtils=new JDBCUtils(driver,url,"hadoop","hadoop123");
+            JDBCUtils  jdbcUtils=new JDBCUtils(driver,url,"hadoop","xj");
             conn=jdbcUtils.getConnection();
             statement=conn.createStatement();
             ResultSet rs=statement.executeQuery(sql);

@@ -22,7 +22,7 @@ public class HiveServiceImpl implements HiveService {
     @Override
     public ResultSet select(String sql,String url,String driver) {
         try {
-            JDBCUtils  jdbcUtils=new JDBCUtils(driver,url,null,null);
+            JDBCUtils  jdbcUtils=new JDBCUtils(driver,url,"hadoop","hadoop123");
             conn=jdbcUtils.getConnection();
             statement=conn.createStatement();
             ResultSet rs=statement.executeQuery(sql);

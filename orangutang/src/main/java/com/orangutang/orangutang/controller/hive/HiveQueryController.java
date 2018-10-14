@@ -19,12 +19,15 @@ public class HiveQueryController {
      */
     @RequestMapping(value = "test",method = RequestMethod.GET)
     public void testQuery() throws Exception{
-        String sql="select * from student";
-        String url="jdbc:hive://localhost:10000/default";
-        String driver="org.apache.hadoop.hive.jdbc.HiveDriver";
+        String sql="show databases";
+        /*注意hive的版本*/
+        String url="jdbc:hive2://192.168.31.32:10000/";
+        String driver="org.apache.hive.jdbc.HiveDriver";
         ResultSet rs=hiveService.select(sql,url,driver);
-        while (rs.next()){
-            System.err.print("name>>"+(String)rs.getObject(1));
+        if (null!=rs){
+            while (rs.next()){
+                System.err.print("name>>"+(String)rs.getObject(1));
+            }
         }
     }
 }

@@ -15,10 +15,7 @@ import org.pentaho.di.trans.TransAdapter;
 import org.pentaho.di.trans.TransExecutionConfiguration;
 import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.cluster.TransSplitter;
-import org.pentaho.di.trans.step.RowAdapter;
-import org.pentaho.di.trans.step.StepInterface;
-import org.pentaho.di.trans.step.StepMeta;
-import org.pentaho.di.trans.step.StepMetaDataCombi;
+import org.pentaho.di.trans.step.*;
 import org.pentaho.di.www.SlaveServerTransStatus;
 
 import java.util.*;
@@ -156,7 +153,12 @@ public class TransExecutor implements Runnable {
                     running = transStatus.isRunning();
                     if(!running) errCount = transStatus.getResult().getNrErrors();
                     Thread.sleep(500);
+                    //get console  log to local(控制台执行日志)
+                    String logString=transStatus.getLoggingString();
+                    //步骤执行日志
+                    List<StepStatus> stepStatusList=transStatus.getStepStatusList();
                 }
+
             } else if(executionConfiguration.isExecutingClustered()) {
                 transSplitter = new TransSplitter( transMeta );
                 transSplitter.splitOriginalTransformation();

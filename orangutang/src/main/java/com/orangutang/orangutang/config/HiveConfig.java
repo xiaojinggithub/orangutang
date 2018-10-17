@@ -2,8 +2,6 @@ package com.orangutang.orangutang.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,7 +10,8 @@ import javax.sql.DataSource;
 
 
 /**
- * 获取到hive的操作客户端，取代jdbc
+ * 使用JdbcTemplate来获取对hive的通用化操作
+ * （其他数据库使用修改链接信息-通过jdbc能访问的数据库）
  * 通过spring的JdbcTemplate方式
  */
 @Configuration
@@ -20,9 +19,7 @@ public class HiveConfig{
     @Autowired
     private Environment env;
 
-    @Bean(name = "hiveJdbcDataSource")
-    @Qualifier("hiveJdbcDataSource")
-    public DataSource dataSource() {
+    private DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(env.getProperty("hive.url"));
         dataSource.setDriverClassName(env.getProperty("hive.driver-class-name"));
@@ -33,12 +30,12 @@ public class HiveConfig{
 
     /**
      * 容器实例化bean
-      * @param dataSource
+      * @param
      * @return
      */
-    @Bean(name = "hiveJdbcTemplate")
-    public JdbcTemplate hiveJdbcTemplate(@Qualifier("hiveJdbcDataSource") DataSource dataSource) {
-        return new JdbcTemplate(dataSource);
+    //@Bean(name = "hiveJdbcTemplate")
+    public JdbcTemplate hiveJdbcTemplate() {
+        return new JdbcTemplate(this.dataSource());
     }
 
 

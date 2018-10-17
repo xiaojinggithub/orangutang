@@ -2,7 +2,6 @@ package com.orangutang.orangutang.controller.hive;
 
 import com.orangutang.orangutang.service.other.hive.HiveService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,8 +18,8 @@ public class HiveQueryController {
     @Autowired
     private HiveService hiveService;
 
-    @Autowired
-    @Qualifier("hiveJdbcTemplate")
+    //@Autowired
+    //@Qualifier("hiveJdbcTemplate")
     private JdbcTemplate hiveJdbcTemplate;
 
     /**

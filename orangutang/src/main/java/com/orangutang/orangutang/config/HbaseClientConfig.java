@@ -6,22 +6,24 @@ import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.Table;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
 
 /**
  * hbase-client (configuration->connection)
  */
-public class HbaseConfig {
-    private static  final  HbaseConfig  INSTANCE=new HbaseConfig();
+public class HbaseClientConfig {
+    private static  final HbaseClientConfig INSTANCE=new HbaseClientConfig();
     private static Configuration configuration;
     private static Connection connection;
-
-    private HbaseConfig(){
+    @Value("${hbase.path}")
+    private String path;
+    private HbaseClientConfig(){
         try {
             if(configuration==null){
                 configuration= HBaseConfiguration.create();
-                configuration.set("hbase.zookeeper.quorum","");
+                configuration.set("hbase.zookeeper.quorum",path);
             }
         }catch (Exception e){
             e.printStackTrace();

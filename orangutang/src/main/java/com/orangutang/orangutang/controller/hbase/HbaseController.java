@@ -1,4 +1,4 @@
-package com.orangutang.orangutang.controller.HBase;
+package com.orangutang.orangutang.controller.hbase;
 
 import com.orangutang.orangutang.service.other.hbase.HbaseBaseService;
 import org.springframework.beans.factory.annotation.Autowired;

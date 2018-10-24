@@ -232,13 +232,24 @@
             <version>3.1.0</version>
         </dependency>-->
 
-        <dependency>
+
+        <!--hive dependency-->
+       <!-- <dependency>
             <groupId>org.apache.hive</groupId>
             <artifactId>hive-jdbc</artifactId>
             <version>3.1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/lib/hive-jdbc-3.1.0.jar</systemPath>
+        </dependency>-->
+
+        <!--spark    hive-jdbc-->
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>1.2.1.spark2</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.apache.hive</groupId>
             <artifactId>hive-service</artifactId>
@@ -326,6 +337,18 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming_2.11</artifactId>
             <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.6</version>
         </dependency>
     </dependencies>
 

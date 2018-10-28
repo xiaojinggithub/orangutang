@@ -3,6 +3,8 @@ package com.orangutang.orangutang.controller.spark
 import java.sql.DriverManager
 import java.util.Properties
 
+import com.orangutang.orangutang.service.kafka.KafkaProducer.send
+import com.orangutang.orangutang.service.kafka.ScalaConsumerExample.ScalaConsumerExample
 import org.apache.spark.sql.SparkSession
 import org.springframework.web.bind.annotation.{RequestMapping, RequestMethod, RestController}
 
@@ -16,10 +18,15 @@ class SparkSqlController extends  java.io.Serializable{
     //t.sparkSqlThriftserver()
 //    t.dataFrameApiOpera
     //t.RDDTOSparkDataFrame
-    var m=new getOutsideData
+    //var m=new getOutsideData
     //m.dealWithParquetData()
    // m.dealDataFromHive
-    m.getDataFromMysql
+    //m.getDataFromMysql
+
+    var send=new send
+    send.testSend()
+    var test=new ScalaConsumerExample
+    test.run()
   }
 
   /**

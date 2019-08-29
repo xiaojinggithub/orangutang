@@ -1,0 +1,46 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.16.8.126:8761/eureka/
+server:
+  port: 8801
+spring:
+  application:
+    name: elasticsearch
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+
+elasticsearch:
+  client:
+    # 连接目标url最大超时
+    connectTimeOut: 5000
+    # 等待响应（读数据）最大超时
+    socketTimeOut: 6000
+    # 从连接池中获取可用连接最大超时时间
+    connectionRequestTime: 3000
+    # 连接池中的最大连接数
+    maxConnectNum: 30
+    # 连接同一个route最大的并发数
+    maxConnectPerRoute: 10
+  # ip地址，多个使用,分隔
+  ipAddrs: 172.16.2.240:9200,172.16.2.241:9200,172.16.2.242:9200
+
+system:
+  #设置系统扫描设备信息，判定设备掉线的时间周期。(cron表达式)
+  scan:
+    cron: "0 */10 * * * ?"
+  #设置判定设备掉线的最大的时间范围。
+  max:
+    intervalTime: 5
+    #可选值:DAY, HOUR, MIMUTE;
+    unit: DAY
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
